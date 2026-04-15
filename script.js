@@ -58,11 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         isMobile
             ? {
-                threshold: [0.08, 0.15, 0.25],
-                rootMargin: "0px 0px -10% 0px"
+                threshold: [0.01],
+                rootMargin: "0px 0px -5% 0px"
             }
             : {
-                threshold: [0.45, 0.6, 0.75]
+                threshold: [0.08],
+                rootMargin: "0px 0px -8% 0px"
             }
     );
 
