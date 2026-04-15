@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hero = document.querySelector(".hero");
     const banner = document.querySelector(".hero-banner");
     const sections = document.querySelectorAll(".hero, .section");
+    const projectsSection = document.querySelector(".projects-section");
     const navLinks = document.querySelectorAll(".nav-links a");
 
     const isMobile = window.matchMedia("(max-width: 860px)").matches;
@@ -66,6 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     sections.forEach((section) => observer.observe(section));
+
+    if (projectsSection && isMobile) {
+        projectsSection.classList.add("is-visible");
+    }
 
     updateHeroBanner();
     window.addEventListener("scroll", updateHeroBanner, { passive: true });
