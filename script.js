@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const hero = document.querySelector(".hero");
     const banner = document.querySelector(".hero-banner");
     const sections = document.querySelectorAll(".hero, .section");
-    const projectsSection = document.querySelector(".projects-section");
     const navLinks = document.querySelectorAll(".nav-links a");
 
     const isMobile = window.matchMedia("(max-width: 860px)").matches;
@@ -33,44 +32,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            let visibleEntry = null;
+    if (!isMobile) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                let visibleEntry = null;
 
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    if (!visibleEntry || entry.intersectionRatio > visibleEntry.intersectionRatio) {
-                        visibleEntry = entry;
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        if (!visibleEntry || entry.intersectionRatio > visibleEntry.intersectionRatio) {
+                            visibleEntry = entry;
+                        }
+                    }
+                });
+
+                if (visibleEntry) {
+                    sections.forEach((section) => section.classList.remove("is-visible"));
+                    visibleEntry.target.classList.add("is-visible");
+
+                    if (visibleEntry.target.id) {
+                        setActiveSection(visibleEntry.target.id);
+                    } else {
+                        navLinks.forEach((link) => link.classList.remove("active-link"));
                     }
                 }
-            });
-
-            if (visibleEntry) {
-                sections.forEach((section) => section.classList.remove("is-visible"));
-                visibleEntry.target.classList.add("is-visible");
-
-                if (visibleEntry.target.id) {
-                    setActiveSection(visibleEntry.target.id);
-                } else {
-                    navLinks.forEach((link) => link.classList.remove("active-link"));
-                }
-            }
-        },
-        isMobile
-            ? {
-                threshold: [0.01],
-                rootMargin: "0px 0px -5% 0px"
-            }
-            : {
+            },
+            {
                 threshold: [0.08],
                 rootMargin: "0px 0px -8% 0px"
             }
-    );
+        );
 
-    sections.forEach((section) => observer.observe(section));
-
-    if (projectsSection && isMobile) {
-        projectsSection.classList.add("is-visible");
+        sections.forEach((section) => observer.observe(section));
+    } else {
+        sections.forEach((section) => section.classList.add("is-visible"));
     }
 
     updateHeroBanner();

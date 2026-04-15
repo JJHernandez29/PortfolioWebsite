@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3df91a09-8bbc-449b-a6c3-f25890efab10" name="Changes" comment="Better support for access on a phone" />
+    <list default="true" id="3df91a09-8bbc-449b-a6c3-f25890efab10" name="Changes" comment="Better support for access on a phone">
+      <change afterPath="$PROJECT_DIR$/mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1776212634355</updated>
-      <workItem from="1776212635337" duration="11248000" />
+      <workItem from="1776212635337" duration="12008000" />
     </task>
     <task id="LOCAL-00001" summary="Shell of portfolio website. Changes soon...">
       <option name="closed" value="true" />
@@ -148,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776224166403</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Better support for access on a phone">
+      <option name="closed" value="true" />
+      <created>1776224455498</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1776224455498</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

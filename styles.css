@@ -299,7 +299,8 @@ main {
             transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.section h3 {
+.section h3,
+.projects-section h3 {
     font-size: clamp(2.4rem, 4vw, 3.5rem);
     margin-bottom: 16px;
     color: #f7f2ea;
@@ -327,6 +328,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 24px;
+    align-items: stretch;
 }
 
 .card,
@@ -461,10 +463,21 @@ main {
     transform: translateY(-3px) scale(1.03);
 }
 
+.project-card {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card p {
+    flex-grow: 1;
+}
+
 .project-links {
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
+    margin-top: auto;
 }
 
 .project-links a,
@@ -565,7 +578,6 @@ main {
 .section.reveal:not(.is-visible) h3,
 .section.reveal:not(.is-visible) .section-text,
 .section.reveal:not(.is-visible) .info-grid,
-.section.reveal:not(.is-visible) .projects-grid,
 .section.reveal:not(.is-visible) .experience-grid,
 .section.reveal:not(.is-visible) .skills-list,
 .section.reveal:not(.is-visible) .contact-box {
@@ -582,7 +594,6 @@ main {
 .section.reveal.is-visible h3,
 .section.reveal.is-visible .section-text,
 .section.reveal.is-visible .info-grid,
-.section.reveal.is-visible .projects-grid,
 .section.reveal.is-visible .experience-grid,
 .section.reveal.is-visible .skills-list,
 .section.reveal.is-visible .contact-box {
@@ -602,7 +613,6 @@ main {
 
 .hero .hero-text,
 .section .info-grid,
-.section .projects-grid,
 .section .experience-grid,
 .section .skills-list,
 .section .contact-box {
@@ -619,297 +629,42 @@ main {
     content: none;
 }
 
-@media (max-width: 1100px) {
-    .info-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero-grid {
-        grid-template-columns: 230px 1fr;
-        gap: 32px;
-    }
+.projects-section {
+    scroll-margin-top: 110px;
 }
 
-/* ---------- Mobile / Tablet Layout ---------- */
-@media (max-width: 860px) {
-    main {
-        scroll-snap-type: none;
-    }
+.projects-section .container {
+    width: min(1180px, 92%);
+}
 
-    .hero,
-    .section,
+@media (min-width: 861px) {
     .projects-section {
-        min-height: auto !important;
-        height: auto !important;
-        display: block !important;
-        padding: 112px 0 52px !important;
-        margin: 0 !important;
-        scroll-snap-align: none !important;
-        scroll-snap-stop: normal !important;
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        background: #000000 !important;
-        will-change: auto !important;
-        backface-visibility: visible !important;
-    }
-
-    .hero::before,
-    .section::before,
-    .projects-section::before {
-        content: none !important;
-    }
-
-    .reveal,
-    .hero-content,
-    .section .container,
-    .hero .eyebrow,
-    .hero h2,
-    .hero h3,
-    .hero .hero-text,
-    .hero .hero-buttons,
-    .hero .social-links,
-    .section h3,
-    .section .section-text,
-    .section .info-grid,
-    .section .projects-grid,
-    .section .experience-grid,
-    .section .skills-list,
-    .section .contact-box,
-    .projects-section .container,
-    .projects-section h3,
-    .projects-section .section-text,
-    .projects-section .projects-grid,
-    .projects-section .project-card {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        transition: none !important;
-    }
-
-    .container {
-        width: min(94%, 100%);
-    }
-
-    .site-header {
-        padding: 0;
-    }
-
-    .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 16px 0;
-    }
-
-    .logo {
-        font-size: 1.6rem;
-    }
-
-    .nav-links {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-    }
-
-    .nav-links a {
-        font-size: 0.95rem;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        text-align: center;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .hero-image {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-    }
-
-    .eyebrow {
-        font-size: 0.82rem;
-        letter-spacing: 1.3px;
-        margin-bottom: 12px;
-    }
-
-    .hero h2 {
-        font-size: clamp(2.2rem, 10vw, 3.2rem);
-        line-height: 0.98;
-        letter-spacing: -1px;
-        margin-bottom: 10px;
-    }
-
-    .hero h3 {
-        font-size: 1.12rem;
-        line-height: 1.3;
-        margin-bottom: 16px;
-    }
-
-    .hero-text,
-    .section-text {
-        font-size: 1rem;
-        line-height: 1.65;
-        margin-bottom: 22px;
-        max-width: 100%;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 18px;
-    }
-
-    .btn,
-    .social-link {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .btn {
-        padding: 13px 18px;
-    }
-
-    .social-links {
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .social-link {
-        padding: 10px 14px;
-        font-size: 0.94rem;
-    }
-
-    .section h3 {
-        font-size: clamp(1.9rem, 8vw, 2.5rem);
-        margin-bottom: 12px;
-    }
-
-    .info-grid,
-    .projects-grid,
-    .experience-grid {
-        grid-template-columns: 1fr !important;
-        gap: 18px !important;
+        min-height: auto;
+        padding-top: 140px;
+        padding-bottom: 100px;
+        display: block;
     }
 
     .projects-section .projects-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-    }
-
-    .card,
-    .project-card,
-    .experience-card,
-    .contact-box {
-        padding: 20px;
-        border-radius: 18px;
-    }
-
-    .card h4,
-    .project-top h4,
-    .experience-card h4 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-
-    .project-card {
-        min-height: auto !important;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .project-card p {
-        flex-grow: 0;
-    }
-
-    .project-links {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 14px;
-    }
-
-    .project-links a {
-        width: 100%;
-    }
-
-    .tags,
-    .skills-list {
-        gap: 10px;
-    }
-
-    .tags span,
-    .skills-list span {
-        font-size: 0.88rem;
-        padding: 10px 14px;
-    }
-
-    .experience-card ul {
-        padding-left: 18px;
-    }
-
-    .site-footer {
-        padding: 18px 0 28px;
-        font-size: 0.92rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
     }
 }
 
-/* ---------- Small Phones ---------- */
-@media (max-width: 480px) {
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-banner,
     .hero,
     .section,
-    .projects-section {
-        padding: 104px 0 44px !important;
-    }
-
-    .logo {
-        font-size: 1.45rem;
-    }
-
-    .hero-image {
-        width: 128px;
-        height: 128px;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero h3 {
-        font-size: 1rem;
-    }
-
-    .hero-text,
-    .section-text {
-        font-size: 0.96rem;
-    }
-
-    .btn {
-        font-size: 0.95rem;
-    }
-
-    .social-link {
-        font-size: 0.9rem;
-    }
-
-    .card,
-    .project-card,
-    .experience-card,
-    .contact-box {
-        padding: 18px;
-    }
-
-    .tags span,
-    .skills-list span {
-        font-size: 0.84rem;
-        padding: 9px 12px;
+    .reveal,
+    .reveal.is-visible,
+    .hero-content,
+    .section .container {
+        transition: none;
+        transform: none;
+        opacity: 1;
     }
 }
