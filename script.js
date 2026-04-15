@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("js-enabled");
-
     const hero = document.querySelector(".hero");
     const banner = document.querySelector(".hero-banner");
-    const revealSections = document.querySelectorAll(".reveal");
+    const sections = document.querySelectorAll(".hero, .section");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    if (hero) {
+        hero.classList.add("is-visible");
+    }
 
     function updateHeroBanner() {
         if (!hero || !banner) return;
@@ -12,33 +15,52 @@ document.addEventListener("DOMContentLoaded", () => {
         const heroHeight = hero.offsetHeight || 1;
         const scrolled = Math.min(Math.max(-rect.top / heroHeight, 0), 1);
 
-        const opacity = 0.22 - scrolled * 0.18;
-        const scale = 1.08 + scrolled * 0.06;
-        const translateY = scrolled * 40;
+        const opacity = 0.16 - scrolled * 0.12;
+        const scale = 1.08 + scrolled * 0.05;
+        const translateY = scrolled * 34;
 
         banner.style.opacity = opacity.toFixed(3);
         banner.style.transform = `scale(${scale}) translateY(${translateY}px)`;
     }
 
-    updateHeroBanner();
-    window.addEventListener("scroll", updateHeroBanner, { passive: true });
-    window.addEventListener("resize", updateHeroBanner);
+    function setActiveSection(id) {
+        navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            link.classList.toggle("active-link", href === `#${id}`);
+        });
+    }
 
     const observer = new IntersectionObserver(
         (entries) => {
+            let visibleEntry = null;
+
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
+                    if (!visibleEntry || entry.intersectionRatio > visibleEntry.intersectionRatio) {
+                        visibleEntry = entry;
+                    }
                 }
             });
+
+            if (visibleEntry) {
+                sections.forEach((section) => section.classList.remove("is-visible"));
+                visibleEntry.target.classList.add("is-visible");
+
+                if (visibleEntry.target.id) {
+                    setActiveSection(visibleEntry.target.id);
+                } else {
+                    navLinks.forEach((link) => link.classList.remove("active-link"));
+                }
+            }
         },
         {
-            threshold: 0.12,
-            rootMargin: "0px 0px -60px 0px"
+            threshold: [0.45, 0.6, 0.75]
         }
     );
 
-    revealSections.forEach((section) => {
-        observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
+
+    updateHeroBanner();
+    window.addEventListener("scroll", updateHeroBanner, { passive: true });
+    window.addEventListener("resize", updateHeroBanner);
 });
