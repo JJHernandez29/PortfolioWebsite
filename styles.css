@@ -722,10 +722,6 @@ main {
         font-size: 0.95rem;
     }
 
-    main {
-        scroll-snap-type: none;
-    }
-
     .hero,
     .section {
         min-height: auto;
@@ -912,5 +908,29 @@ main {
     .skills-list span {
         font-size: 0.84rem;
         padding: 9px 12px;
+    }
+}
+/* mobile visibility fallback: keeps all sections visible on smaller screens */
+@media (max-width: 860px) {
+    .reveal,
+    .hero,
+    .section,
+    .hero-content,
+    .section .container,
+    .hero .eyebrow,
+    .hero h2,
+    .hero h3,
+    .hero .hero-text,
+    .hero .hero-buttons,
+    .hero .social-links,
+    .section h3,
+    .section .section-text,
+    .section .info-grid,
+    .section .projects-grid,
+    .section .experience-grid,
+    .section .skills-list,
+    .section .contact-box {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".hero, .section");
     const navLinks = document.querySelectorAll(".nav-links a");
 
+    const isMobile = window.matchMedia("(max-width: 860px)").matches;
+
     if (hero) {
         hero.classList.add("is-visible");
     }
@@ -53,9 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         },
-        {
-            threshold: [0.45, 0.6, 0.75]
-        }
+        isMobile
+            ? {
+                threshold: [0.08, 0.15, 0.25],
+                rootMargin: "0px 0px -10% 0px"
+            }
+            : {
+                threshold: [0.45, 0.6, 0.75]
+            }
     );
 
     sections.forEach((section) => observer.observe(section));

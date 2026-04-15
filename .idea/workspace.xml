@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3df91a09-8bbc-449b-a6c3-f25890efab10" name="Changes" comment="New immersive experience">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3df91a09-8bbc-449b-a6c3-f25890efab10" name="Changes" comment="Better support for access on a phone">
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1776212634355</updated>
-      <workItem from="1776212635337" duration="10191000" />
+      <workItem from="1776212635337" duration="10609000" />
     </task>
     <task id="LOCAL-00001" summary="Shell of portfolio website. Changes soon...">
       <option name="closed" value="true" />
@@ -118,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776222139119</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Better support for access on a phone">
+      <option name="closed" value="true" />
+      <created>1776223309713</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776223309713</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +148,7 @@
     <MESSAGE value="Shell of portfolio website. Changes soon..." />
     <MESSAGE value="Almost complete website for my portfolio. I added cards, slowly appearing sections, resume style information, updated links and color.&#10;&#10;Next I am going to be implementing a more immersive experience for the user and giving more indepth descriptions for each card. This shall make it from a hollow shell to a more unique, personalized portfolio." />
     <MESSAGE value="New immersive experience" />
-    <option name="LAST_COMMIT_MESSAGE" value="New immersive experience" />
+    <MESSAGE value="Better support for access on a phone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better support for access on a phone" />
   </component>
 </project>
