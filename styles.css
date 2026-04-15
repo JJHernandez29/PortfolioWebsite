@@ -324,6 +324,21 @@ main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.projects-section {
+    background: #000000;
+    padding: 140px 0 90px;
+    min-height: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+    scroll-margin-top: 110px;
+}
+
+.projects-section .container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -560,7 +575,6 @@ main {
 .section h3,
 .section .section-text,
 .section .info-grid,
-.section .projects-grid,
 .section .experience-grid,
 .section .skills-list,
 .section .contact-box {
@@ -574,7 +588,7 @@ main {
 .hero:not(.is-visible) h3,
 .hero:not(.is-visible) .hero-text,
 .hero:not(.is-visible) .hero-buttons,
-.hero:not(.is-visible) .social-links,
+.hero:not(.is-visible) .hero-social-links,
 .section.reveal:not(.is-visible) h3,
 .section.reveal:not(.is-visible) .section-text,
 .section.reveal:not(.is-visible) .info-grid,
@@ -629,25 +643,9 @@ main {
     content: none;
 }
 
-.projects-section {
-    scroll-margin-top: 110px;
-}
-
-.projects-section .container {
-    width: min(1180px, 92%);
-}
-
 @media (min-width: 861px) {
-    .projects-section {
-        min-height: auto;
-        padding-top: 140px;
-        padding-bottom: 100px;
-        display: block;
-    }
-
     .projects-section .projects-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
     }
 }
 

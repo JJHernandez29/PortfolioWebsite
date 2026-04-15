@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const banner = document.querySelector(".hero-banner");
     const sections = document.querySelectorAll(".hero, .section");
     const navLinks = document.querySelectorAll(".nav-links a");
-
     const isMobile = window.matchMedia("(max-width: 860px)").matches;
 
     if (hero) {
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     visibleEntry.target.classList.add("is-visible");
 
                     if (visibleEntry.target.id) {
-                        setActiveSection(visibleEntry.target.id);
+                        setActiveSection(entryTargetId = visibleEntry.target.id);
                     } else {
                         navLinks.forEach((link) => link.classList.remove("active-link"));
                     }
